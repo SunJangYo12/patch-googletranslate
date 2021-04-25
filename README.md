@@ -33,9 +33,9 @@ add feature android google translate like translate from telnet, file and disabl
 >> hdu.smali
 <ul>
 	<li>rename d(context)Z to orid(context)Z line:418(apkeditor)</li>
-	<li>add d(context)Z:</li>
-	<bold>
-		.method public static d(Landroid/content/Context;)Z
+<bold>
+	<li>add d(context)Z:</li><br>
+.method public static d(Landroid/content/Context;)Z
     .locals 1
 
     .prologue
