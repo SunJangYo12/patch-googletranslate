@@ -34,9 +34,10 @@ add feature android google translate like translate from telnet, file and disabl
 <ul>
 	<li>rename d(context)Z to orid(context)Z line:418(apkeditor)</li>
 	<li>add d(context)Z:</li><br>
-	<bold>
-	.method public static d(Landroid/content/Context;)Z
+<bold>
+.method public static d(Landroid/content/Context;)Z
     .locals 1
+
     .prologue
     .line 35
     const-string v0, "shunNetwork"
@@ -60,7 +61,6 @@ add feature android google translate like translate from telnet, file and disabl
     move-result v0
 
     goto :goto_0
-	.end method
-	
-	</bold>
+.end method
+</bold>
 </ul>
