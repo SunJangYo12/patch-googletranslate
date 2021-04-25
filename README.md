@@ -33,8 +33,8 @@ add feature android google translate like translate from telnet, file and disabl
 >> hdu.smali
 <ul>
 	<li>rename d(context)Z to orid(context)Z line:418(apkeditor)</li>
-<bold>
 	<li>add d(context)Z:</li><br>
+	<bold><p>
 .method public static d(Landroid/content/Context;)Z
     .locals 1
 
@@ -61,6 +61,6 @@ add feature android google translate like translate from telnet, file and disabl
     move-result v0
 
     goto :goto_0
-.end method
+.end method</p>
 	</bold>
 </ul>
