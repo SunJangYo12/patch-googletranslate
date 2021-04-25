@@ -66,13 +66,13 @@ add feature android google translate like translate from telnet, file and disabl
 </ul>
 
 <h3>Shift Translate clipboard to file</h3>
->> cwv.smali #from read a file (input text translate)
+>> cwv.smali from read a file (input text translate)
 <ul>
 	<li>rename b(context)STR to orib(context)STR line:369(apkeditor)</li>
 	<li>add b(context)Ljava/lang/String</li>
 	<bold>
 //static fileds
-.field public static isFileWrite:Z
+.field public static isFileWrite:Z</bold><bold>
 
  ...
 
@@ -123,7 +123,7 @@ add feature android google translate like translate from telnet, file and disabl
 .end method
 	</bold>
 </ul>
->> com/google/android/apps/translate/copydrop/views/CopyDropTextContainerView.smali  #write file (text result translate)
+>> com/google/android/apps/translate/copydrop/views/CopyDropTextContainerView.smali //write file (text result translate)
 <ul>
 	<li>add this line in a(String, Z)V (line:287-apkeditor) below move-result-object v0</li>
 	<bold>
