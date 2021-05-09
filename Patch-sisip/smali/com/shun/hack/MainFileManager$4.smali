@@ -30,7 +30,7 @@
     .locals 0
 
     .prologue
-    .line 309
+    .line 319
     iput-object p1, p0, Lcom/shun/hack/MainFileManager$4;->this$0:Lcom/shun/hack/MainFileManager;
 
     iput-object p2, p0, Lcom/shun/hack/MainFileManager$4;->val$shMemori:Lcom/shun/hack/memori/SharedMemori;
@@ -50,7 +50,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 312
+    .line 322
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$4;->val$shMemori:Lcom/shun/hack/memori/SharedMemori;
 
     const-string v1, "shunTranSer"
@@ -63,7 +63,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/shun/hack/memori/SharedMemori;->setSharedMemori(Ljava/lang/String;Z)V
 
-    .line 313
+    .line 323
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$4;->val$shMemori:Lcom/shun/hack/memori/SharedMemori;
 
     const-string v1, "shunTranSer"
@@ -74,7 +74,7 @@
 
     if-nez v0, :cond_0
 
-    .line 314
+    .line 324
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$4;->this$0:Lcom/shun/hack/MainFileManager;
 
     invoke-static {v0}, Lcom/shun/hack/MainFileManager;->access$000(Lcom/shun/hack/MainFileManager;)Landroid/content/Context;
@@ -89,11 +89,11 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 318
+    .line 328
     :goto_0
     return-void
 
-    .line 316
+    .line 326
     :cond_0
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$4;->this$0:Lcom/shun/hack/MainFileManager;
 

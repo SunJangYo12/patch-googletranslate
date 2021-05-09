@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 258
+    .line 268
     iput-object p1, p0, Lcom/shun/hack/MainFileManager$2$1;->this$1:Lcom/shun/hack/MainFileManager$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,10 +40,10 @@
     .locals 3
 
     .prologue
-    .line 261
+    .line 271
     if-nez p2, :cond_1
 
-    .line 262
+    .line 272
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$2$1;->this$1:Lcom/shun/hack/MainFileManager$2;
 
     iget-object v0, v0, Lcom/shun/hack/MainFileManager$2;->this$0:Lcom/shun/hack/MainFileManager;
@@ -58,18 +58,18 @@
 
     invoke-static {v0, v1}, Lcom/shun/hack/MainFileManager;->access$100(Lcom/shun/hack/MainFileManager;Landroid/content/Context;)V
 
-    .line 270
+    .line 280
     :cond_0
     :goto_0
     return-void
 
-    .line 264
+    .line 274
     :cond_1
     const/4 v0, 0x1
 
     if-ne p2, v0, :cond_2
 
-    .line 265
+    .line 275
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$2$1;->this$1:Lcom/shun/hack/MainFileManager$2;
 
     iget-object v0, v0, Lcom/shun/hack/MainFileManager$2;->this$0:Lcom/shun/hack/MainFileManager;
@@ -86,13 +86,13 @@
 
     goto :goto_0
 
-    .line 267
+    .line 277
     :cond_2
     const/4 v0, 0x2
 
     if-ne p2, v0, :cond_0
 
-    .line 268
+    .line 278
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$2$1;->this$1:Lcom/shun/hack/MainFileManager$2;
 
     iget-object v0, v0, Lcom/shun/hack/MainFileManager$2;->this$0:Lcom/shun/hack/MainFileManager;

@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 1029
+    .line 1039
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,7 +35,7 @@
     .locals 2
 
     .prologue
-    .line 1032
+    .line 1042
     invoke-interface {p1}, Lcom/shun/hack/SortItem;->getSortField()Ljava/lang/String;
 
     move-result-object v0
@@ -55,7 +55,7 @@
     .locals 1
 
     .prologue
-    .line 1029
+    .line 1039
     check-cast p1, Lcom/shun/hack/SortItem;
 
     check-cast p2, Lcom/shun/hack/SortItem;

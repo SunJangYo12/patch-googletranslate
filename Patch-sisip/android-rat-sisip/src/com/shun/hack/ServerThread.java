@@ -38,42 +38,38 @@ public class ServerThread extends Thread {
                         Log.i("serverSetsuna", "Terhubung dengan "+socket.getInetAddress().getHostAddress());
 
                         try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-                            String pesan;
-                            while ((pesan = in.readLine()) != null) {
+                            
+                            char[] buffer = new char[1000];
+                            String pesan = "";
+                            int index;
+
+                            while ((index = in.read(buffer, 0, 1000)) != 0) 
+                            {
+                                pesan = new String(buffer, 0, index);
+                            
                                 Log.i("serverSetsuna", pesan);
 
                                 if (isResult) {
                                     isResult = false;
                                     PrintWriter xx = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-                                    xx.print(dataResult+"\n");
+                                    xx.print(dataResult+"\n\n");
                                     xx.flush();
                                 }
-
-                                if (pesan.equals("tes")) {
-                                    PrintWriter xx = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-                                    xx.print("zzzz\n");
-                                    xx.flush();
-                                }
-                                else if (pesan.equals("close")) {
+                                if (index == 3) {
                                     PrintWriter xx = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
                                     xx.print("<< close accept >>\n");
                                     xx.flush();
                                     mainRun = false;
                                     break;
                                 }
-                                else if (pesan.equals("open")) {
-                                    PrintWriter xx = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-                                    xx.print("<< ini tes activity opened >>\n");
-                                    xx.flush();
-                                }
-                                else if (pesan.equals("n")) {
+                                else if (index == 2) {
                                     if (MainFileManager.getTransResultTelnet.equals("")) { // this smali Rename to CopyDropService
                                         PrintWriter xx = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
                                         xx.print("<< Please wait... >>\n");
                                         xx.flush();
                                     } else {
                                         PrintWriter xx = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-                                        xx.print("\n"+MainFileManager.getTransResultTelnet+"\n"); // this smali Rename to CopyDropService
+                                        xx.print("\n\n"+MainFileManager.getTransResultTelnet+"\n\n"); // this smali Rename to CopyDropService
                                         MainFileManager.getTransResultTelnet = ""; // this smali Rename to CopyDropService
                                         xx.flush();
 
@@ -85,7 +81,7 @@ public class ServerThread extends Thread {
                                 }
                                 else {
                                     PrintWriter xx = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-                                    xx.print("<< new tranlate Process... Press n to result>>\n");
+                                    xx.print("<< Tranlate Process... Press Enter to result >>\n");
                                     xx.flush();
 
                                     Intent intent = new Intent(context, MainFileManager.class); // edit to CopyDropActivity

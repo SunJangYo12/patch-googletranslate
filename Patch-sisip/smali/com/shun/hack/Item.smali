@@ -21,22 +21,22 @@
     .locals 0
 
     .prologue
-    .line 980
+    .line 990
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 981
+    .line 991
     iput p1, p0, Lcom/shun/hack/Item;->imageId:I
 
-    .line 982
+    .line 992
     iput-object p2, p0, Lcom/shun/hack/Item;->header:Ljava/lang/String;
 
-    .line 983
+    .line 993
     iput-object p3, p0, Lcom/shun/hack/Item;->subheader:Ljava/lang/String;
 
-    .line 984
+    .line 994
     iput p4, p0, Lcom/shun/hack/Item;->type:I
 
-    .line 985
+    .line 995
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .locals 1
 
     .prologue
-    .line 1000
+    .line 1010
     iget-object v0, p0, Lcom/shun/hack/Item;->header:Ljava/lang/String;
 
     return-object v0
@@ -56,7 +56,7 @@
     .locals 1
 
     .prologue
-    .line 1016
+    .line 1026
     iget v0, p0, Lcom/shun/hack/Item;->imageId:I
 
     return v0
@@ -66,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 1020
+    .line 1030
     iget-object v0, p0, Lcom/shun/hack/Item;->header:Ljava/lang/String;
 
     return-object v0
@@ -76,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 1008
+    .line 1018
     iget-object v0, p0, Lcom/shun/hack/Item;->subheader:Ljava/lang/String;
 
     return-object v0
@@ -86,7 +86,7 @@
     .locals 1
 
     .prologue
-    .line 992
+    .line 1002
     iget v0, p0, Lcom/shun/hack/Item;->type:I
 
     return v0
@@ -96,10 +96,10 @@
     .locals 0
 
     .prologue
-    .line 996
+    .line 1006
     iput-object p1, p0, Lcom/shun/hack/Item;->header:Ljava/lang/String;
 
-    .line 997
+    .line 1007
     return-void
 .end method
 
@@ -107,10 +107,10 @@
     .locals 0
 
     .prologue
-    .line 1012
+    .line 1022
     iput p1, p0, Lcom/shun/hack/Item;->imageId:I
 
-    .line 1013
+    .line 1023
     return-void
 .end method
 
@@ -118,10 +118,10 @@
     .locals 0
 
     .prologue
-    .line 1004
+    .line 1014
     iput-object p1, p0, Lcom/shun/hack/Item;->subheader:Ljava/lang/String;
 
-    .line 1005
+    .line 1015
     return-void
 .end method
 
@@ -129,9 +129,9 @@
     .locals 0
 
     .prologue
-    .line 988
+    .line 998
     iput p1, p0, Lcom/shun/hack/Item;->type:I
 
-    .line 989
+    .line 999
     return-void
 .end method

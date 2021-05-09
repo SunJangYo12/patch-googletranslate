@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 683
+    .line 693
     iput-object p1, p0, Lcom/shun/hack/MainFileManager$12;->this$0:Lcom/shun/hack/MainFileManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 687
+    .line 697
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$12;->this$0:Lcom/shun/hack/MainFileManager;
 
     iget-object v0, v0, Lcom/shun/hack/MainFileManager;->items:Ljava/util/ArrayList;
@@ -62,19 +62,19 @@
 
     check-cast v0, Lcom/shun/hack/Item;
 
-    .line 688
+    .line 698
     invoke-virtual {v0}, Lcom/shun/hack/Item;->getType()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 700
+    .line 710
     :goto_0
     :pswitch_0
     return v5
 
-    .line 690
+    .line 700
     :pswitch_1
     iget-object v1, p0, Lcom/shun/hack/MainFileManager$12;->this$0:Lcom/shun/hack/MainFileManager;
 
@@ -114,7 +114,7 @@
 
     goto :goto_0
 
-    .line 696
+    .line 706
     :pswitch_2
     iget-object v1, p0, Lcom/shun/hack/MainFileManager$12;->this$0:Lcom/shun/hack/MainFileManager;
 
@@ -156,7 +156,7 @@
 
     goto :goto_0
 
-    .line 688
+    .line 698
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

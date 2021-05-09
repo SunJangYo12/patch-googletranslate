@@ -43,34 +43,34 @@
     .end annotation
 
     .prologue
-    .line 917
+    .line 927
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 913
+    .line 923
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/shun/hack/MyAdapter;->list:Ljava/util/ArrayList;
 
-    .line 918
+    .line 928
     if-eqz p2, :cond_0
 
-    .line 919
+    .line 929
     iput-object p2, p0, Lcom/shun/hack/MyAdapter;->list:Ljava/util/ArrayList;
 
-    .line 921
+    .line 931
     :cond_0
     iput-object p1, p0, Lcom/shun/hack/MyAdapter;->context:Landroid/content/Context;
 
-    .line 922
+    .line 932
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/shun/hack/MyAdapter;->li:Landroid/view/LayoutInflater;
 
-    .line 923
+    .line 933
     return-void
 .end method
 
@@ -80,7 +80,7 @@
     .locals 1
 
     .prologue
-    .line 926
+    .line 936
     iget-object v0, p0, Lcom/shun/hack/MyAdapter;->list:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -94,7 +94,7 @@
     .locals 1
 
     .prologue
-    .line 930
+    .line 940
     iget-object v0, p0, Lcom/shun/hack/MyAdapter;->list:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -108,7 +108,7 @@
     .locals 2
 
     .prologue
-    .line 934
+    .line 944
     int-to-long v0, p1
 
     return-wide v0
@@ -122,63 +122,63 @@
 
     const/4 v4, -0x2
 
-    .line 938
+    .line 948
     new-instance v1, Landroid/widget/LinearLayout;
 
     iget-object v0, p0, Lcom/shun/hack/MyAdapter;->context:Landroid/content/Context;
 
     invoke-direct {v1, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 939
+    .line 949
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    .line 940
+    .line 950
     new-instance v0, Landroid/widget/AbsListView$LayoutParams;
 
     invoke-direct {v0, v2, v4}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 942
+    .line 952
     new-instance v2, Landroid/widget/ImageView;
 
     iget-object v0, p0, Lcom/shun/hack/MyAdapter;->context:Landroid/content/Context;
 
     invoke-direct {v2, v0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    .line 943
+    .line 953
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 945
+    .line 955
     new-instance v0, Landroid/widget/LinearLayout;
 
     iget-object v3, p0, Lcom/shun/hack/MyAdapter;->context:Landroid/content/Context;
 
     invoke-direct {v0, v3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 946
+    .line 956
     new-instance v3, Landroid/widget/AbsListView$LayoutParams;
 
     invoke-direct {v3, v4, v4}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 947
+    .line 957
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 948
+    .line 958
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 950
+    .line 960
     new-instance v3, Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/shun/hack/MyAdapter;->context:Landroid/content/Context;
 
     invoke-direct {v3, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 951
+    .line 961
     const-string v4, "#040404"
 
     invoke-static {v4}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
@@ -187,22 +187,22 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 952
+    .line 962
     const/high16 v4, 0x41700000    # 15.0f
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 953
+    .line 963
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 955
+    .line 965
     new-instance v4, Landroid/widget/TextView;
 
     iget-object v5, p0, Lcom/shun/hack/MyAdapter;->context:Landroid/content/Context;
 
     invoke-direct {v4, v5}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 956
+    .line 966
     const-string v5, "#040404"
 
     invoke-static {v5}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
@@ -211,15 +211,15 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 957
+    .line 967
     const/high16 v5, 0x41200000    # 10.0f
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 958
+    .line 968
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 960
+    .line 970
     iget-object v0, p0, Lcom/shun/hack/MyAdapter;->list:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -228,27 +228,27 @@
 
     check-cast v0, Lcom/shun/hack/Item;
 
-    .line 962
+    .line 972
     invoke-virtual {v0}, Lcom/shun/hack/Item;->getImageId()I
 
     move-result v5
 
     invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 963
+    .line 973
     invoke-virtual {v0}, Lcom/shun/hack/Item;->getHeader()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 964
+    .line 974
     invoke-virtual {v0}, Lcom/shun/hack/Item;->getSubheader()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 965
+    .line 975
     return-object v1
 .end method

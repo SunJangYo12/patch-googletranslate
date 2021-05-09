@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 251
+    .line 261
     iput-object p1, p0, Lcom/shun/hack/MainFileManager$2;->this$0:Lcom/shun/hack/MainFileManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 254
+    .line 264
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/String;
@@ -69,7 +69,7 @@
 
     aput-object v2, v0, v1
 
-    .line 255
+    .line 265
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager$2;->this$0:Lcom/shun/hack/MainFileManager;
@@ -80,28 +80,28 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 256
+    .line 266
     const-string v2, "Pilih Aksi"
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 257
+    .line 267
     invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 258
+    .line 268
     new-instance v2, Lcom/shun/hack/MainFileManager$2$1;
 
     invoke-direct {v2, p0}, Lcom/shun/hack/MainFileManager$2$1;-><init>(Lcom/shun/hack/MainFileManager$2;)V
 
     invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 272
+    .line 282
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    .line 273
+    .line 283
     return-void
 .end method

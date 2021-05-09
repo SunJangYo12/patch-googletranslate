@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 668
+    .line 678
     iput-object p1, p0, Lcom/shun/hack/MainFileManager$11$2;->this$1:Lcom/shun/hack/MainFileManager$11;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 4
 
     .prologue
-    .line 670
+    .line 680
     iget-object v0, p0, Lcom/shun/hack/MainFileManager$11$2;->this$1:Lcom/shun/hack/MainFileManager$11;
 
     iget-object v0, v0, Lcom/shun/hack/MainFileManager$11;->this$0:Lcom/shun/hack/MainFileManager;
@@ -91,6 +91,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/shun/hack/MainFileManager;->access$900(Lcom/shun/hack/MainFileManager;ZLjava/lang/String;)V
 
-    .line 671
+    .line 681
     return-void
 .end method

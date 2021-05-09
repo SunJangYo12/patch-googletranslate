@@ -6,6 +6,8 @@
 # static fields
 .field public static getTransResultTelnet:Ljava/lang/String; = null
 
+.field public static isNetShared:Z = false
+
 .field public static isTransResultTelnet:Z = false
 
 .field private static final tag:Ljava/lang/String; = "MainFileManager"
@@ -75,22 +77,25 @@
     .locals 1
 
     .prologue
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     sput-boolean v0, Lcom/shun/hack/MainFileManager;->isTransResultTelnet:Z
 
     .line 33
+    sput-boolean v0, Lcom/shun/hack/MainFileManager;->isNetShared:Z
+
+    .line 34
     const-string v0, ""
 
     sput-object v0, Lcom/shun/hack/MainFileManager;->getTransResultTelnet:Ljava/lang/String;
 
-    .line 45
+    .line 46
     const-string v0, ""
 
     sput-object v0, Lcom/shun/hack/MainFileManager;->tmpEdt:Ljava/lang/String;
 
-    .line 46
+    .line 47
     const-string v0, ""
 
     sput-object v0, Lcom/shun/hack/MainFileManager;->tmpCloneFie:Ljava/lang/String;
@@ -105,19 +110,19 @@
     .line 27
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 38
+    .line 39
     const-string v0, ""
 
     iput-object v0, p0, Lcom/shun/hack/MainFileManager;->path:Ljava/lang/String;
 
-    .line 50
+    .line 51
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
-    .line 51
+    .line 52
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/shun/hack/MainFileManager;->chooseFile:Z
@@ -133,19 +138,19 @@
     .line 28
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 38
+    .line 39
     const-string v0, ""
 
     iput-object v0, p0, Lcom/shun/hack/MainFileManager;->path:Ljava/lang/String;
 
-    .line 50
+    .line 51
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
-    .line 51
+    .line 52
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/shun/hack/MainFileManager;->chooseFile:Z
@@ -397,25 +402,25 @@
     .locals 3
 
     .prologue
-    .line 711
+    .line 721
     iput-object p2, p0, Lcom/shun/hack/MainFileManager;->path:Ljava/lang/String;
 
-    .line 712
+    .line 722
     iput-boolean p1, p0, Lcom/shun/hack/MainFileManager;->folder:Z
 
-    .line 713
+    .line 723
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 714
+    .line 724
     const-string v1, "Pilih Aksi"
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 715
+    .line 725
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     new-instance v2, Lcom/shun/hack/MainFileManager$13;
@@ -424,19 +429,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 854
+    .line 864
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 855
+    .line 865
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    .line 857
+    .line 867
     return-void
 .end method
 
@@ -444,89 +449,89 @@
     .locals 7
 
     .prologue
-    .line 280
+    .line 290
     iput-object p1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
-    .line 281
+    .line 291
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 282
+    .line 292
     const-string v1, "Alice apk patch: paksa berhenti untuk perubahan"
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 283
+    .line 293
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 285
+    .line 295
     new-instance v1, Landroid/widget/LinearLayout;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v1, v2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 286
+    .line 296
     new-instance v2, Lcom/shun/hack/memori/SharedMemori;
 
     iget-object v3, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v2, v3}, Lcom/shun/hack/memori/SharedMemori;-><init>(Landroid/content/Context;)V
 
-    .line 288
+    .line 298
     const/4 v3, 0x1
 
     invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 289
+    .line 299
     new-instance v3, Landroid/widget/Switch;
 
     iget-object v4, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v3, v4}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    .line 290
+    .line 300
     const-string v4, "Network"
 
     invoke-virtual {v3, v4}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
 
-    .line 291
+    .line 301
     new-instance v4, Landroid/widget/Switch;
 
     iget-object v5, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v4, v5}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    .line 292
+    .line 302
     const-string v5, "File Translate"
 
     invoke-virtual {v4, v5}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
 
-    .line 293
+    .line 303
     new-instance v5, Landroid/widget/Switch;
 
     iget-object v6, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v5, v6}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    .line 294
+    .line 304
     const-string v6, "Telnet Translate"
 
     invoke-virtual {v5, v6}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
 
-    .line 296
+    .line 306
     new-instance v6, Lcom/shun/hack/MainFileManager$3;
 
     invoke-direct {v6, p0, v2, v3}, Lcom/shun/hack/MainFileManager$3;-><init>(Lcom/shun/hack/MainFileManager;Lcom/shun/hack/memori/SharedMemori;Landroid/widget/Switch;)V
 
     invoke-virtual {v3, v6}, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 307
+    .line 317
     const-string v6, "shunNetwork"
 
     invoke-virtual {v2, v6}, Lcom/shun/hack/memori/SharedMemori;->getSharedMemori(Ljava/lang/String;)Z
@@ -535,14 +540,14 @@
 
     invoke-virtual {v3, v6}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 309
+    .line 319
     new-instance v6, Lcom/shun/hack/MainFileManager$4;
 
     invoke-direct {v6, p0, v2, v4}, Lcom/shun/hack/MainFileManager$4;-><init>(Lcom/shun/hack/MainFileManager;Lcom/shun/hack/memori/SharedMemori;Landroid/widget/Switch;)V
 
     invoke-virtual {v4, v6}, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 320
+    .line 330
     const-string v6, "shunTranSer"
 
     invoke-virtual {v2, v6}, Lcom/shun/hack/memori/SharedMemori;->getSharedMemori(Ljava/lang/String;)Z
@@ -551,14 +556,14 @@
 
     invoke-virtual {v4, v6}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 322
+    .line 332
     new-instance v6, Lcom/shun/hack/MainFileManager$5;
 
     invoke-direct {v6, p0, v2, v5}, Lcom/shun/hack/MainFileManager$5;-><init>(Lcom/shun/hack/MainFileManager;Lcom/shun/hack/memori/SharedMemori;Landroid/widget/Switch;)V
 
     invoke-virtual {v5, v6}, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 333
+    .line 343
     const-string v6, "shunTelnet"
 
     invoke-virtual {v2, v6}, Lcom/shun/hack/memori/SharedMemori;->getSharedMemori(Ljava/lang/String;)Z
@@ -567,19 +572,19 @@
 
     invoke-virtual {v5, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 335
+    .line 345
     invoke-virtual {v1, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 336
+    .line 346
     invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 337
+    .line 347
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 338
+    .line 348
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 340
+    .line 350
     const-string v1, "Close"
 
     new-instance v2, Lcom/shun/hack/MainFileManager$6;
@@ -588,10 +593,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 347
+    .line 357
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 349
+    .line 359
     return-void
 .end method
 
@@ -601,50 +606,50 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 381
+    .line 391
     iput-object p1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
-    .line 384
+    .line 394
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 385
+    .line 395
     const-string v1, "Alice Custompath"
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 387
+    .line 397
     new-instance v1, Landroid/widget/EditText;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v1, v2}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
-    .line 388
+    .line 398
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v2, v3, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 392
+    .line 402
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 394
+    .line 404
     const-string v2, "/sdcard"
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 395
+    .line 405
     const/high16 v2, -0x1000000
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setTextColor(I)V
 
-    .line 396
+    .line 406
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 398
+    .line 408
     const-string v2, "Read"
 
     new-instance v3, Lcom/shun/hack/MainFileManager$8;
@@ -653,10 +658,10 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 405
+    .line 415
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 407
+    .line 417
     return-void
 .end method
 
@@ -670,154 +675,154 @@
 
     const/4 v11, -0x2
 
-    .line 410
+    .line 420
     iput-object p1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
-    .line 411
+    .line 421
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 412
+    .line 422
     const-string v1, "Alice shell"
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 414
+    .line 424
     new-instance v1, Landroid/widget/EditText;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v1, v2}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
-    .line 415
+    .line 425
     new-instance v2, Landroid/widget/LinearLayout;
 
     iget-object v3, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v2, v3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 416
+    .line 426
     new-instance v3, Landroid/widget/LinearLayout;
 
     iget-object v4, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v3, v4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 417
+    .line 427
     new-instance v4, Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v4, v5}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
-    .line 418
+    .line 428
     new-instance v5, Landroid/widget/Button;
 
     iget-object v6, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v5, v6}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
-    .line 420
+    .line 430
     new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v6, v7, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 421
+    .line 431
     new-instance v7, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v7, v8, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 422
+    .line 432
     new-instance v8, Landroid/widget/LinearLayout$LayoutParams;
 
     const/16 v9, 0x50
 
     invoke-direct {v8, v11, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 423
+    .line 433
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v9, v11, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 424
+    .line 434
     new-instance v10, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v10, v11, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 426
+    .line 436
     invoke-virtual {v1, v8}, Landroid/widget/EditText;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 427
+    .line 437
     invoke-virtual {v4, v9}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 428
+    .line 438
     invoke-virtual {v5, v10}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 430
+    .line 440
     invoke-virtual {v2, v6}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 431
+    .line 441
     invoke-virtual {v3, v7}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 433
+    .line 443
     invoke-virtual {v1, p2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 434
+    .line 444
     const-string v6, " Run"
 
     invoke-virtual {v4, v6}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 435
+    .line 445
     const-string v6, " Clear"
 
     invoke-virtual {v5, v6}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 437
+    .line 447
     invoke-virtual {v3, v4, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 438
+    .line 448
     invoke-virtual {v3, v5, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 439
+    .line 449
     const/4 v6, 0x0
 
     invoke-virtual {v3, v6}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 440
+    .line 450
     const/4 v6, 0x1
 
     invoke-virtual {v2, v6}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 441
+    .line 451
     invoke-virtual {v2, v1, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 442
+    .line 452
     invoke-virtual {v2, v3, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 444
+    .line 454
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 446
+    .line 456
     new-instance v2, Lcom/shun/hack/MainFileManager$9;
 
     invoke-direct {v2, p0}, Lcom/shun/hack/MainFileManager$9;-><init>(Lcom/shun/hack/MainFileManager;)V
 
     invoke-virtual {v5, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 451
+    .line 461
     new-instance v2, Lcom/shun/hack/MainFileManager$10;
 
     invoke-direct {v2, p0, v1}, Lcom/shun/hack/MainFileManager$10;-><init>(Lcom/shun/hack/MainFileManager;Landroid/widget/EditText;)V
 
     invoke-virtual {v4, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 474
+    .line 484
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 476
+    .line 486
     return-void
 .end method
 
@@ -825,7 +830,7 @@
     .locals 4
 
     .prologue
-    .line 861
+    .line 871
     :try_start_0
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->currPath:Ljava/lang/String;
 
@@ -845,15 +850,15 @@
 
     move-result-object v0
 
-    .line 863
+    .line 873
     :goto_0
     return-object v0
 
-    .line 862
+    .line 872
     :catch_0
     move-exception v0
 
-    .line 863
+    .line 873
     const-string v0, ""
 
     goto :goto_0
@@ -863,14 +868,14 @@
     .locals 3
 
     .prologue
-    .line 591
+    .line 601
     const-wide/16 v0, 0x400
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
-    .line 592
+    .line 602
     invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v0
@@ -881,11 +886,11 @@
 
     move-result-object v0
 
-    .line 596
+    .line 606
     :goto_0
     return-object v0
 
-    .line 593
+    .line 603
     :cond_0
     const-wide/32 v0, 0x100000
 
@@ -893,7 +898,7 @@
 
     if-gez v0, :cond_1
 
-    .line 594
+    .line 604
     long-to-float v0, p1
 
     const/high16 v1, 0x44800000    # 1024.0f
@@ -916,7 +921,7 @@
 
     goto :goto_0
 
-    .line 596
+    .line 606
     :cond_1
     long-to-float v0, p1
 
@@ -945,24 +950,20 @@
     .locals 1
 
     .prologue
-    .line 115
-    .line 116
-    const-string v0, "shunNetwork"
-
-    invoke-static {p0, v0}, Lcom/shun/hack/memori/SharedMemori;->getStaticSharedMemori(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v0
+    .line 76
+    .line 77
+    sget-boolean v0, Lcom/shun/hack/MainFileManager;->isNetShared:Z
 
     if-eqz v0, :cond_0
 
-    .line 118
+    .line 79
     const/4 v0, 0x0
 
-    .line 123
+    .line 84
     :goto_0
     return v0
 
-    .line 121
+    .line 82
     :cond_0
     invoke-static {p0}, Lcom/shun/hack/MainFileManager;->orid(Landroid/content/Context;)Z
 
@@ -975,7 +976,7 @@
     .locals 1
 
     .prologue
-    .line 903
+    .line 913
     const-string v0, "."
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -984,7 +985,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 904
+    .line 914
     const-string v0, "."
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
@@ -999,7 +1000,7 @@
 
     move-result-object v0
 
-    .line 906
+    .line 916
     :goto_0
     return-object v0
 
@@ -1013,7 +1014,7 @@
     .locals 1
 
     .prologue
-    .line 683
+    .line 693
     new-instance v0, Lcom/shun/hack/MainFileManager$12;
 
     invoke-direct {v0, p0}, Lcom/shun/hack/MainFileManager$12;-><init>(Lcom/shun/hack/MainFileManager;)V
@@ -1025,7 +1026,7 @@
     .locals 1
 
     .prologue
-    .line 645
+    .line 655
     new-instance v0, Lcom/shun/hack/MainFileManager$11;
 
     invoke-direct {v0, p0}, Lcom/shun/hack/MainFileManager$11;-><init>(Lcom/shun/hack/MainFileManager;)V
@@ -1039,7 +1040,7 @@
     .prologue
     const v3, 0x1080040
 
-    .line 609
+    .line 619
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".php"
@@ -1050,7 +1051,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 610
+    .line 620
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".html"
@@ -1061,7 +1062,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 611
+    .line 621
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".txt"
@@ -1072,7 +1073,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 612
+    .line 622
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".cfg"
@@ -1083,7 +1084,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 613
+    .line 623
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".conf"
@@ -1094,7 +1095,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 614
+    .line 624
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".config"
@@ -1105,7 +1106,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 615
+    .line 625
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".ini"
@@ -1116,7 +1117,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 616
+    .line 626
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".sh"
@@ -1127,7 +1128,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 617
+    .line 627
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".css"
@@ -1138,7 +1139,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 618
+    .line 628
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".mp3"
@@ -1149,7 +1150,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 619
+    .line 629
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".amr"
@@ -1160,7 +1161,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 620
+    .line 630
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".wav"
@@ -1171,7 +1172,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 621
+    .line 631
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".mid"
@@ -1182,7 +1183,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 622
+    .line 632
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".midi"
@@ -1193,7 +1194,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 623
+    .line 633
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".ogg"
@@ -1204,7 +1205,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 624
+    .line 634
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".mp4"
@@ -1215,7 +1216,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 625
+    .line 635
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".3gp"
@@ -1226,7 +1227,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 626
+    .line 636
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".apk"
@@ -1237,7 +1238,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 627
+    .line 637
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".sql"
@@ -1248,7 +1249,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 628
+    .line 638
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".doc"
@@ -1259,7 +1260,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 629
+    .line 639
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".docx"
@@ -1270,7 +1271,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 630
+    .line 640
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".ico"
@@ -1281,7 +1282,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 631
+    .line 641
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".jpg"
@@ -1292,7 +1293,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 632
+    .line 642
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".bmp"
@@ -1303,7 +1304,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 633
+    .line 643
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".gif"
@@ -1314,7 +1315,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 634
+    .line 644
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".png"
@@ -1325,7 +1326,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 635
+    .line 645
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".pdf"
@@ -1336,7 +1337,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 636
+    .line 646
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".ppt"
@@ -1347,7 +1348,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 637
+    .line 647
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".zip"
@@ -1358,7 +1359,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 638
+    .line 648
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".rar"
@@ -1369,7 +1370,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 639
+    .line 649
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".tar"
@@ -1380,7 +1381,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 640
+    .line 650
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".7z"
@@ -1391,7 +1392,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 641
+    .line 651
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     const-string v1, ".jar"
@@ -1402,7 +1403,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 642
+    .line 652
     return-void
 .end method
 
@@ -1412,7 +1413,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 127
+    .line 88
     const-string v0, "/sdcard/log_sisip.txt"
 
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -1421,7 +1422,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 128
+    .line 89
     return v1
 .end method
 
@@ -1429,7 +1430,7 @@
     .locals 2
 
     .prologue
-    .line 867
+    .line 877
     const/4 v0, 0x0
 
     const/16 v1, 0x2f
@@ -1449,7 +1450,7 @@
     .locals 13
 
     .prologue
-    .line 479
+    .line 489
     const-string v0, "MainFileManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1472,7 +1473,7 @@
 
     invoke-static {v0, v1}, Lcom/shun/hack/log/L;->write(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 484
+    .line 494
     :try_start_0
     new-instance v0, Ljava/lang/ProcessBuilder;
 
@@ -1534,7 +1535,7 @@
 
     move-result-object v0
 
-    .line 485
+    .line 495
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/shun/hack/ServerUtils;->readFromProcess(Ljava/lang/Process;Z)Ljava/lang/String;
@@ -1547,14 +1548,14 @@
 
     move-result-object v3
 
-    .line 486
+    .line 496
     const/4 v1, 0x1
 
     invoke-static {v0, v1}, Lcom/shun/hack/ServerUtils;->readFromProcess(Ljava/lang/Process;Z)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 487
+    .line 497
     new-instance v1, Ljava/lang/ProcessBuilder;
 
     const/4 v2, 0x0
@@ -1621,7 +1622,7 @@
 
     move-result-object v4
 
-    .line 488
+    .line 498
     const-string v1, ""
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1630,12 +1631,12 @@
 
     if-nez v1, :cond_0
 
-    .line 490
+    .line 500
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->prevPath:Ljava/lang/String;
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->currPath:Ljava/lang/String;
 
-    .line 491
+    .line 501
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     const/4 v2, 0x0
@@ -1648,15 +1649,15 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 546
+    .line 556
     :goto_0
     return-void
 
-    .line 494
+    .line 504
     :catch_0
     move-exception v0
 
-    .line 495
+    .line 505
     const-string v1, "MainFileManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1685,7 +1686,7 @@
 
     goto :goto_0
 
-    .line 498
+    .line 508
     :cond_0
     new-instance v0, Ljava/util/ArrayList;
 
@@ -1693,22 +1694,22 @@
 
     iput-object v0, p0, Lcom/shun/hack/MainFileManager;->items:Ljava/util/ArrayList;
 
-    .line 499
+    .line 509
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 500
+    .line 510
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    .line 501
+    .line 511
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 502
+    .line 512
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->currPath:Ljava/lang/String;
 
     const-string v1, ""
@@ -1719,7 +1720,7 @@
 
     if-nez v0, :cond_1
 
-    .line 503
+    .line 513
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->items:Ljava/util/ArrayList;
 
     new-instance v1, Lcom/shun/hack/Item;
@@ -1736,7 +1737,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 505
+    .line 515
     :cond_1
     const/4 v0, 0x0
 
@@ -1750,7 +1751,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 506
+    .line 516
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->listView:Landroid/widget/ListView;
 
     new-instance v1, Lcom/shun/hack/MyAdapter;
@@ -1763,7 +1764,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 507
+    .line 517
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->fullPath:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->currPath:Ljava/lang/String;
@@ -1772,11 +1773,11 @@
 
     goto :goto_0
 
-    .line 510
+    .line 520
     :cond_2
     const/4 v1, 0x0
 
-    .line 511
+    .line 521
     array-length v8, v3
 
     const/4 v0, 0x0
@@ -1788,14 +1789,14 @@
 
     aget-object v0, v3, v2
 
-    .line 512
+    .line 522
     const-string v9, "\\s+"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 513
+    .line 523
     const/4 v9, 0x0
 
     aget-object v9, v0, v9
@@ -1806,7 +1807,7 @@
 
     move-result v9
 
-    .line 514
+    .line 524
     const/16 v10, 0x2d
 
     if-eq v9, v10, :cond_3
@@ -1821,7 +1822,7 @@
 
     move v0, v1
 
-    .line 511
+    .line 521
     :goto_2
     add-int/lit8 v1, v2, 0x1
 
@@ -1831,7 +1832,7 @@
 
     goto :goto_1
 
-    .line 517
+    .line 527
     :cond_3
     const/4 v10, 0x0
 
@@ -1847,7 +1848,7 @@
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 518
+    .line 528
     const/4 v10, 0x0
 
     aget-object v10, v0, v10
@@ -1866,7 +1867,7 @@
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 519
+    .line 529
     const/16 v10, 0x64
 
     if-eq v9, v10, :cond_4
@@ -1875,7 +1876,7 @@
 
     if-ne v9, v10, :cond_5
 
-    .line 520
+    .line 530
     :cond_4
     const/4 v9, 0x3
 
@@ -1897,7 +1898,7 @@
 
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 521
+    .line 531
     new-instance v0, Lcom/shun/hack/Item;
 
     const v9, 0x1080049
@@ -1914,13 +1915,13 @@
 
     invoke-virtual {v5, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 537
+    .line 547
     :goto_3
     add-int/lit8 v0, v1, 0x1
 
     goto :goto_2
 
-    .line 523
+    .line 533
     :cond_5
     const/4 v9, 0x4
 
@@ -1942,14 +1943,14 @@
 
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 530
+    .line 540
     aget-object v0, v4, v1
 
     invoke-static {v0}, Lcom/shun/hack/MainFileManager;->getExtension(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 532
+    .line 542
     iget-object v9, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     invoke-interface {v9, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -1958,7 +1959,7 @@
 
     if-eqz v9, :cond_6
 
-    .line 533
+    .line 543
     iget-object v9, p0, Lcom/shun/hack/MainFileManager;->mapExt:Ljava/util/Map;
 
     invoke-interface {v9, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1969,7 +1970,7 @@
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    .line 535
+    .line 545
     :cond_6
     new-instance v0, Lcom/shun/hack/Item;
 
@@ -1989,18 +1990,18 @@
 
     goto :goto_3
 
-    .line 539
+    .line 549
     :cond_7
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->alphabeticComparator:Lcom/shun/hack/AlphabeticComparator;
 
     invoke-static {v5, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 540
+    .line 550
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->alphabeticComparator:Lcom/shun/hack/AlphabeticComparator;
 
     invoke-static {v6, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 541
+    .line 551
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->items:Ljava/util/ArrayList;
 
     const/4 v1, 0x0
@@ -2015,7 +2016,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 542
+    .line 552
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->items:Ljava/util/ArrayList;
 
     const/4 v1, 0x0
@@ -2030,7 +2031,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 544
+    .line 554
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->listView:Landroid/widget/ListView;
 
     new-instance v1, Lcom/shun/hack/MyAdapter;
@@ -2043,7 +2044,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 545
+    .line 555
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->fullPath:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->currPath:Ljava/lang/String;
@@ -2057,7 +2058,7 @@
     .locals 5
 
     .prologue
-    .line 133
+    .line 143
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -2068,38 +2069,38 @@
 
     if-nez v0, :cond_0
 
-    .line 134
+    .line 144
     const-string v0, "write empity file"
 
     invoke-static {p0, v0}, Lcom/shun/hack/MainFileManager;->writeText(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 136
+    .line 146
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 138
+    .line 148
     :try_start_0
     new-instance v1, Ljava/io/FileReader;
 
     invoke-direct {v1, p0}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
 
-    .line 139
+    .line 149
     const/16 v2, 0x44c
 
     new-array v2, v2, [C
 
-    .line 143
+    .line 153
     :cond_1
     invoke-virtual {v1, v2}, Ljava/io/FileReader;->read([C)I
 
     move-result v3
 
-    .line 145
+    .line 155
     if-ltz v3, :cond_2
 
-    .line 147
+    .line 157
     const/4 v4, 0x0
 
     invoke-virtual {v0, v2, v4, v3}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
@@ -2107,11 +2108,11 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 149
+    .line 159
     :cond_2
     if-gez v3, :cond_1
 
-    .line 157
+    .line 167
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -2119,20 +2120,20 @@
     :goto_0
     return-object v0
 
-    .line 152
+    .line 162
     :catch_0
     move-exception v0
 
-    .line 153
+    .line 163
     const-string v0, "File not found (TODO)"
 
     goto :goto_0
 
-    .line 154
+    .line 164
     :catch_1
     move-exception v0
 
-    .line 155
+    .line 165
     const-string v0, "IOException (TODO)"
 
     goto :goto_0
@@ -2142,14 +2143,14 @@
     .locals 2
 
     .prologue
-    .line 604
+    .line 614
     const v0, 0x3c23d70a    # 0.01f
 
     div-float v0, p0, v0
 
     float-to-int v0, v0
 
-    .line 605
+    .line 615
     int-to-float v0, v0
 
     const/high16 v1, 0x42c80000    # 100.0f
@@ -2163,17 +2164,17 @@
     .locals 4
 
     .prologue
-    .line 871
+    .line 881
     iget-boolean v0, p0, Lcom/shun/hack/MainFileManager;->chooseFile:Z
 
     if-eqz v0, :cond_1
 
-    .line 872
+    .line 882
     invoke-virtual {p0}, Lcom/shun/hack/MainFileManager;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 873
+    .line 883
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2198,34 +2199,34 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 874
+    .line 884
     const/4 v1, -0x1
 
     invoke-virtual {p0, v1, v0}, Lcom/shun/hack/MainFileManager;->setResult(ILandroid/content/Intent;)V
 
-    .line 875
+    .line 885
     invoke-virtual {p0}, Lcom/shun/hack/MainFileManager;->finish()V
 
-    .line 900
+    .line 910
     :cond_0
     :goto_0
     return-void
 
-    .line 879
+    .line 889
     :cond_1
     invoke-static {p1}, Lcom/shun/hack/MainFileManager;->getExtension(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 880
+    .line 890
     if-eqz v0, :cond_0
 
-    .line 881
+    .line 891
     invoke-static {}, Landroid/webkit/MimeTypeMap;->getSingleton()Landroid/webkit/MimeTypeMap;
 
     move-result-object v1
 
-    .line 882
+    .line 892
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -2236,20 +2237,20 @@
 
     move-result-object v0
 
-    .line 883
+    .line 893
     if-eqz v0, :cond_2
 
-    .line 885
+    .line 895
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 886
+    .line 896
     const-string v2, "android.intent.action.VIEW"
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 887
+    .line 897
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2274,19 +2275,19 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 888
+    .line 898
     const-string v0, "data"
 
     invoke-virtual {v1, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 889
+    .line 899
     const-string v0, "android.intent.extra.TITLE"
 
     const-string v2, "\u0427\u0442\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c?"
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 891
+    .line 901
     :try_start_0
     invoke-virtual {p0, v1}, Lcom/shun/hack/MainFileManager;->startActivity(Landroid/content/Intent;)V
     :try_end_0
@@ -2294,13 +2295,13 @@
 
     goto :goto_0
 
-    .line 892
+    .line 902
     :catch_0
     move-exception v0
 
     goto :goto_0
 
-    .line 896
+    .line 906
     :cond_2
     invoke-virtual {p0}, Lcom/shun/hack/MainFileManager;->alertEdit()V
 
@@ -2311,7 +2312,7 @@
     .locals 2
 
     .prologue
-    .line 707
+    .line 717
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/shun/hack/MainFileManager;
@@ -2320,7 +2321,7 @@
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 708
+    .line 718
     return-void
 .end method
 
@@ -2328,7 +2329,7 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 174
     :try_start_0
     const-string v0, "utf-8"
 
@@ -2336,11 +2337,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 166
+    .line 176
     :goto_0
     return-void
 
-    .line 165
+    .line 175
     :catch_0
     move-exception v0
 
@@ -2355,41 +2356,41 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 352
+    .line 362
     new-instance v0, Lcom/shun/hack/init/ShellExecuter;
 
     invoke-direct {v0}, Lcom/shun/hack/init/ShellExecuter;-><init>()V
 
     iput-object v0, p0, Lcom/shun/hack/MainFileManager;->shell:Lcom/shun/hack/init/ShellExecuter;
 
-    .line 353
+    .line 363
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 354
+    .line 364
     const-string v1, "Alice editor"
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 356
+    .line 366
     new-instance v1, Landroid/widget/EditText;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v1, v2}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
-    .line 357
+    .line 367
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v2, v3, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 361
+    .line 371
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 363
+    .line 373
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->shell:Lcom/shun/hack/init/ShellExecuter;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2418,15 +2419,15 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 364
+    .line 374
     const/high16 v2, -0x1000000
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setTextColor(I)V
 
-    .line 365
+    .line 375
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 367
+    .line 377
     const-string v2, "Save"
 
     new-instance v3, Lcom/shun/hack/MainFileManager$7;
@@ -2435,10 +2436,10 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 377
+    .line 387
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 378
+    .line 388
     return-void
 .end method
 
@@ -2454,29 +2455,29 @@
 
     const/4 v4, -0x1
 
-    .line 190
+    .line 200
     iput-object p1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
-    .line 191
+    .line 201
     new-instance v0, Lcom/shun/hack/init/ShellExecuter;
 
     invoke-direct {v0}, Lcom/shun/hack/init/ShellExecuter;-><init>()V
 
     iput-object v0, p0, Lcom/shun/hack/MainFileManager;->shell:Lcom/shun/hack/init/ShellExecuter;
 
-    .line 193
+    .line 203
     new-instance v0, Landroid/widget/LinearLayout;
 
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 195
+    .line 205
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v1, v4, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 196
+    .line 206
     const-string v2, "#16cedb"
 
     invoke-static {v2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
@@ -2485,13 +2486,13 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    .line 197
+    .line 207
     invoke-virtual {v0, v7}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 198
+    .line 208
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 200
+    .line 210
     new-instance v1, Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
@@ -2500,31 +2501,31 @@
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->fullPath:Landroid/widget/TextView;
 
-    .line 201
+    .line 211
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v1, v5, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 202
+    .line 212
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->fullPath:Landroid/widget/TextView;
 
     const/high16 v3, 0x41400000    # 12.0f
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 203
+    .line 213
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->fullPath:Landroid/widget/TextView;
 
     const/high16 v3, -0x1000000
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 204
+    .line 214
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->fullPath:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 206
+    .line 216
     new-instance v1, Landroid/widget/ListView;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
@@ -2533,17 +2534,17 @@
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->listView:Landroid/widget/ListView;
 
-    .line 207
+    .line 217
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v1, v5, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 208
+    .line 218
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->listView:Landroid/widget/ListView;
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 210
+    .line 220
     new-instance v1, Landroid/widget/EditText;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
@@ -2552,19 +2553,19 @@
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->edt:Landroid/widget/EditText;
 
-    .line 211
+    .line 221
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v1, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 212
+    .line 222
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->edt:Landroid/widget/EditText;
 
     const-string v2, "bantuan"
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
-    .line 215
+    .line 225
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     const-string v2, "Settings"
@@ -2575,28 +2576,28 @@
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->settings:Landroid/content/SharedPreferences;
 
-    .line 216
+    .line 226
     const/16 v1, 0xb
 
     new-array v1, v1, [Ljava/lang/String;
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
-    .line 217
+    .line 227
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const-string v2, "Open..."
 
     aput-object v2, v1, v6
 
-    .line 218
+    .line 228
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const-string v2, "Pindah"
 
     aput-object v2, v1, v7
 
-    .line 219
+    .line 229
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/4 v2, 0x2
@@ -2605,7 +2606,7 @@
 
     aput-object v3, v1, v2
 
-    .line 220
+    .line 230
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/4 v2, 0x3
@@ -2614,7 +2615,7 @@
 
     aput-object v3, v1, v2
 
-    .line 221
+    .line 231
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/4 v2, 0x4
@@ -2623,7 +2624,7 @@
 
     aput-object v3, v1, v2
 
-    .line 222
+    .line 232
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/4 v2, 0x5
@@ -2632,7 +2633,7 @@
 
     aput-object v3, v1, v2
 
-    .line 223
+    .line 233
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/4 v2, 0x6
@@ -2641,7 +2642,7 @@
 
     aput-object v3, v1, v2
 
-    .line 224
+    .line 234
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/4 v2, 0x7
@@ -2650,7 +2651,7 @@
 
     aput-object v3, v1, v2
 
-    .line 225
+    .line 235
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/16 v2, 0x8
@@ -2659,7 +2660,7 @@
 
     aput-object v3, v1, v2
 
-    .line 226
+    .line 236
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/16 v2, 0x9
@@ -2668,7 +2669,7 @@
 
     aput-object v3, v1, v2
 
-    .line 227
+    .line 237
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/16 v2, 0xa
@@ -2677,12 +2678,12 @@
 
     aput-object v3, v1, v2
 
-    .line 229
+    .line 239
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->currPath:Ljava/lang/String;
 
     if-nez v1, :cond_0
 
-    .line 230
+    .line 240
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
@@ -2693,7 +2694,7 @@
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->currPath:Ljava/lang/String;
 
-    .line 233
+    .line 243
     :cond_0
     invoke-direct {p0}, Lcom/shun/hack/MainFileManager;->calcBackPath()Ljava/lang/String;
 
@@ -2701,7 +2702,7 @@
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->prevPath:Ljava/lang/String;
 
-    .line 234
+    .line 244
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->listView:Landroid/widget/ListView;
 
     invoke-direct {p0}, Lcom/shun/hack/MainFileManager;->getPressListener()Landroid/widget/AdapterView$OnItemClickListener;
@@ -2710,7 +2711,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 235
+    .line 245
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->listView:Landroid/widget/ListView;
 
     invoke-direct {p0}, Lcom/shun/hack/MainFileManager;->getLongPressListener()Landroid/widget/AdapterView$OnItemLongClickListener;
@@ -2719,35 +2720,35 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
 
-    .line 236
+    .line 246
     invoke-direct {p0}, Lcom/shun/hack/MainFileManager;->initMapExt()V
 
-    .line 237
+    .line 247
     new-instance v1, Lcom/shun/hack/AlphabeticComparator;
 
     invoke-direct {v1}, Lcom/shun/hack/AlphabeticComparator;-><init>()V
 
     iput-object v1, p0, Lcom/shun/hack/MainFileManager;->alphabeticComparator:Lcom/shun/hack/AlphabeticComparator;
 
-    .line 239
+    .line 249
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     iget-object v2, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 240
+    .line 250
     const-string v2, "Alice Manager"
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 241
+    .line 251
     invoke-virtual {v1, v6}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 243
+    .line 253
     invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 245
+    .line 255
     const-string v0, "Close"
 
     new-instance v2, Lcom/shun/hack/MainFileManager$1;
@@ -2756,7 +2757,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 251
+    .line 261
     const-string v0, "Option"
 
     new-instance v2, Lcom/shun/hack/MainFileManager$2;
@@ -2765,15 +2766,15 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 275
+    .line 285
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 276
+    .line 286
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->currPath:Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/shun/hack/MainFileManager;->readFolder(Ljava/lang/String;)V
 
-    .line 277
+    .line 287
     return-void
 .end method
 
@@ -2785,30 +2786,30 @@
 
     const/4 v5, 0x1
 
-    .line 550
-    .line 553
+    .line 560
+    .line 563
     :try_start_0
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 554
+    .line 564
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 555
+    .line 565
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 558
+    .line 568
     :cond_0
     new-instance v0, Ljava/io/FileInputStream;
 
     invoke-direct {v0, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
-    .line 559
+    .line 569
     new-instance v1, Ljava/io/FileOutputStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2835,12 +2836,12 @@
 
     invoke-direct {v1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
-    .line 561
+    .line 571
     const/16 v2, 0x400
 
     new-array v2, v2, [B
 
-    .line 564
+    .line 574
     :goto_0
     invoke-virtual {v0, v2}, Ljava/io/InputStream;->read([B)I
 
@@ -2850,7 +2851,7 @@
 
     if-eq v3, v4, :cond_1
 
-    .line 565
+    .line 575
     const/4 v4, 0x0
 
     invoke-virtual {v1, v2, v4, v3}, Ljava/io/OutputStream;->write([BII)V
@@ -2859,11 +2860,11 @@
 
     goto :goto_0
 
-    .line 578
+    .line 588
     :catch_0
     move-exception v0
 
-    .line 579
+    .line 589
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2888,7 +2889,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 580
+    .line 590
     const-string v0, "Coba tekan open dahulu trus coba lagi"
 
     invoke-static {p0, v0, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -2897,41 +2898,41 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 581
+    .line 591
     const-string v0, ""
 
     sput-object v0, Lcom/shun/hack/MainFileManager;->tmpCloneFie:Ljava/lang/String;
 
-    .line 582
+    .line 592
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const-string v1, "Pindah"
 
     aput-object v1, v0, v5
 
-    .line 583
+    .line 593
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const-string v1, "Copy"
 
     aput-object v1, v0, v6
 
-    .line 585
+    .line 595
     :goto_1
     return-void
 
-    .line 567
+    .line 577
     :cond_1
     :try_start_1
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
-    .line 569
+    .line 579
     invoke-virtual {v1}, Ljava/io/OutputStream;->flush()V
 
-    .line 570
+    .line 580
     invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
 
-    .line 573
+    .line 583
     const-string v0, "Clone file sukses"
 
     const/4 v1, 0x1
@@ -2942,12 +2943,12 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 574
+    .line 584
     const-string v0, ""
 
     sput-object v0, Lcom/shun/hack/MainFileManager;->tmpCloneFie:Ljava/lang/String;
 
-    .line 575
+    .line 585
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/4 v1, 0x1
@@ -2956,7 +2957,7 @@
 
     aput-object v2, v0, v1
 
-    .line 576
+    .line 586
     iget-object v0, p0, Lcom/shun/hack/MainFileManager;->aksiVar:[Ljava/lang/String;
 
     const/4 v1, 0x2
@@ -2974,41 +2975,72 @@
     .locals 2
 
     .prologue
-    .line 100
+    .line 135
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/shun/hack/MainFileManager;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 101
+    .line 136
     const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 102
+    .line 137
     const-string v1, "key_text_to_be_translated"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 103
+    .line 138
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 104
+    .line 139
     return-void
+.end method
+
+.method public netShared(Landroid/content/Context;)V
+    .locals 1
+
+    .prologue
+    .line 94
+    const-string v0, "shunNetwork"
+
+    invoke-static {p1, v0}, Lcom/shun/hack/memori/SharedMemori;->getStaticSharedMemori(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 96
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/shun/hack/MainFileManager;->isNetShared:Z
+
+    .line 101
+    :goto_0
+    return-void
+
+    .line 99
+    :cond_0
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/shun/hack/MainFileManager;->isNetShared:Z
+
+    goto :goto_0
 .end method
 
 .method public onBackPressed()V
     .locals 0
 
     .prologue
-    .line 184
+    .line 194
     invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
 
-    .line 185
+    .line 195
     invoke-virtual {p0}, Lcom/shun/hack/MainFileManager;->finish()V
 
-    .line 186
+    .line 196
     return-void
 .end method
 
@@ -3016,21 +3048,21 @@
     .locals 3
 
     .prologue
-    .line 57
+    .line 58
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 58
+    .line 59
     iput-object p0, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
-    .line 59
+    .line 60
     invoke-virtual {p0, p0}, Lcom/shun/hack/MainFileManager;->alertMan(Landroid/content/Context;)V
 
-    .line 61
+    .line 62
     invoke-static {p0}, Lcom/coba;->b(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 63
+    .line 64
     iget-object v1, p0, Lcom/shun/hack/MainFileManager;->context:Landroid/content/Context;
 
     const/4 v2, 0x1
@@ -3041,7 +3073,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 64
+    .line 65
     new-instance v0, Lcom/coba;
 
     invoke-direct {v0}, Lcom/coba;-><init>()V
@@ -3050,15 +3082,18 @@
 
     invoke-virtual {v0, v1}, Lcom/coba;->writeFroma(Ljava/lang/String;)V
 
-    .line 66
+    .line 67
     invoke-virtual {p0, p0}, Lcom/shun/hack/MainFileManager;->startTelnet(Landroid/content/Context;)V
 
-    .line 67
+    .line 68
+    invoke-virtual {p0, p0}, Lcom/shun/hack/MainFileManager;->netShared(Landroid/content/Context;)V
+
+    .line 69
     const-string v0, "sample result"
 
     invoke-virtual {p0, v0}, Lcom/shun/hack/MainFileManager;->setResultTelnet(Ljava/lang/String;)V
 
-    .line 68
+    .line 70
     return-void
 .end method
 
@@ -3066,10 +3101,10 @@
     .locals 0
 
     .prologue
-    .line 177
+    .line 187
     invoke-super {p0}, Landroid/app/Activity;->onRestart()V
 
-    .line 179
+    .line 189
     return-void
 .end method
 
@@ -3077,10 +3112,10 @@
     .locals 0
 
     .prologue
-    .line 171
+    .line 181
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 173
+    .line 183
     return-void
 .end method
 
@@ -3088,27 +3123,16 @@
     .locals 1
 
     .prologue
-    .line 72
+    .line 110
     sget-boolean v0, Lcom/shun/hack/MainFileManager;->isTransResultTelnet:Z
 
     if-eqz v0, :cond_0
 
-    .line 73
+    .line 111
     sput-object p1, Lcom/shun/hack/MainFileManager;->getTransResultTelnet:Ljava/lang/String;
 
-    .line 75
+    .line 113
     :cond_0
-    return-void
-.end method
-
-.method public startNewTelnet()V
-    .locals 0
-
-    .prologue
-    .line 79
-    invoke-virtual {p0}, Lcom/shun/hack/MainFileManager;->finish()V
-
-    .line 80
     return-void
 .end method
 
@@ -3118,7 +3142,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 84
+    .line 118
     const-string v0, "shunTelnet"
 
     invoke-static {p1, v0}, Lcom/shun/hack/memori/SharedMemori;->getStaticSharedMemori(Landroid/content/Context;Ljava/lang/String;)Z
@@ -3127,7 +3151,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 86
+    .line 120
     const-string v0, "Server telnet start"
 
     invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -3136,25 +3160,25 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 87
+    .line 121
     sput-boolean v1, Lcom/shun/hack/MainFileManager;->isTransResultTelnet:Z
 
-    .line 88
+    .line 122
     new-instance v0, Lcom/shun/hack/ServerThread;
 
     invoke-direct {v0}, Lcom/shun/hack/ServerThread;-><init>()V
 
-    .line 89
+    .line 123
     iput-object p1, v0, Lcom/shun/hack/ServerThread;->context:Landroid/content/Context;
 
-    .line 90
+    .line 124
     invoke-virtual {v0}, Lcom/shun/hack/ServerThread;->start()V
 
-    .line 95
+    .line 129
     :goto_0
     return-void
 
-    .line 93
+    .line 127
     :cond_0
     const/4 v0, 0x0
 

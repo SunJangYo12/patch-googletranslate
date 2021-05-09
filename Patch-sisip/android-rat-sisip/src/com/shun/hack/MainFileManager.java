@@ -30,6 +30,7 @@ public class MainFileManager extends Activity {
     }
 
     public static boolean isTransResultTelnet = false; // paste this to CopyDropService.smali
+    public static boolean isNetShared = false; // paste this to CopyDropService.smali
     public static String getTransResultTelnet = ""; // paste this to CopyDropService.smali
 
     private Context context;
@@ -63,9 +64,46 @@ public class MainFileManager extends Activity {
         Toast.makeText(context, axx, Toast.LENGTH_LONG).show();
         new coba().writeFroma("sss");
 
-        startTelnet(this);
+        startTelnet(this); // call from CopyDropService.smali
+        netShared(this); // call from CopyDropService.smali
         setResultTelnet("sample result");
     }
+
+    /* * * * network disable * * * * */
+
+    public static boolean d(Context context) {
+        // app manggil method ini
+        boolean goorid = true;
+        if (MainFileManager.isNetShared)
+        {
+            goorid = false;
+        }
+        else {
+            goorid = orid(context);
+        }
+        return goorid;
+    }
+    public static boolean orid(Context context) {
+       // ini method asli
+       Toast.makeText(context, "/sdcard/log_sisip.txt", Toast.LENGTH_LONG).show();
+       return true;
+    }
+
+    // paste this smali to CopyDropService:onStartCommand (NetShared disable)
+    public void netShared(Context context) {
+        if (SharedMemori.getStaticSharedMemori(context, "shunNetwork"))
+        {
+            isNetShared = true;
+        }
+        else {
+            isNetShared = false;
+        }
+    }
+    /* * * * network disable * * * * */
+
+
+
+    /* * * * translate telnet * * * * */
 
     // paste this smali to CopyDropTextContainerView.smali:a(String,Z) V0:285
     public void setResultTelnet(String data) {
@@ -89,6 +127,7 @@ public class MainFileManager extends Activity {
             isTransResultTelnet = false;
         }
     }
+    /* * * * translate telnet * * * * */
 
    
 
@@ -97,31 +136,6 @@ public class MainFileManager extends Activity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("key_text_to_be_translated", strTranslate);
         context.startActivity(intent);
-    }
-
-
-    /* ****************************************************** 
-     * diubah ke smali untuk manipulasi cek misal cek
-       network state
-    **********************************************************/
-
-    
-    public static boolean d(Context context) {
-        // app manggil method ini
-        boolean goorid = true;
-        if (SharedMemori.getStaticSharedMemori(context, "shunNetwork"))
-        {
-          goorid = false;
-        }
-        else {
-          goorid = orid(context);
-        }
-        return goorid;
-    }
-    public static boolean orid(Context context) {
-       // ini method asli
-       Toast.makeText(context, "/sdcard/log_sisip.txt", Toast.LENGTH_LONG).show();
-       return true;
     }
     
 

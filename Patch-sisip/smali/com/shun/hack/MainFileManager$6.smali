@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 340
+    .line 350
     iput-object p1, p0, Lcom/shun/hack/MainFileManager$6;->this$0:Lcom/shun/hack/MainFileManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,6 +40,6 @@
     .locals 0
 
     .prologue
-    .line 344
+    .line 354
     return-void
 .end method
