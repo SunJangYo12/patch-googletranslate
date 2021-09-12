@@ -43,10 +43,10 @@ public class ServerThread extends Thread {
                         xx.print("######################\n\n");
 
                         xx.print("Follwing this help: \n");
-                        xx.print("l+enter: to picup result translate\n");
+                        xx.print("l+enter: to close connection\n");
                         xx.print("enter  : to process text\n");
-                        xx.print("l+enter if you new text translate\n");
-                        xx.print("text input here to translate language\n\n\n");
+                        xx.print("\n");
+                        xx.print("Text input here to translate \n characker language\nand output automatic push here\n\n\n");
                         xx.flush();
 
                         try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
@@ -66,28 +66,13 @@ public class ServerThread extends Thread {
                                     xx.flush();
                                 }
                                 if (index == 3) {
-                                    strbuf.delete(0, strbuf.length());
-
-                                    xx.print("\n\n============= Text Output ================\n");
-
-                                    if (MainFileManager.getTransResultTelnet.equals("")) { // this smali Rename to CopyDropService
-                                        xx.print("<< Please wait... >>\n");
-                                        xx.flush();
-                                    } else {
-                                        xx.print("\n\n"+MainFileManager.getTransResultTelnet+"\n\n"); // this smali Rename to CopyDropService
-                                        MainFileManager.getTransResultTelnet = ""; // this smali Rename to CopyDropService
-                                        xx.flush();
-
-                                        Intent intent = new Intent(Intent.ACTION_MAIN);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        intent.addCategory(Intent.CATEGORY_HOME);
-                                        context.startActivity(intent);
-                                    }
-                                    xx.print("============= Text Output ================\n\n");
+                                    xx.print("<< close accept >>\n");
                                     xx.flush();
+                                    mainRun = false;
+                                    break;
                                 }
                                 else if (index == 2) {
-                                    xx.print("<< Tranlate Process... Press l+Enter to result >>\n");
+                                    xx.print("<< Tranlate Process... result Automatic >>\n");
                                     xx.flush();
 
                                     Intent intent = new Intent(context, MainFileManager.class); // edit to CopyDropActivity
@@ -98,6 +83,32 @@ public class ServerThread extends Thread {
                                     Log.i("serverSetsuna", "\n============= Text input ================");
                                     Log.i("serverSetsuna", strbuf.toString());
                                     Log.i("serverSetsuna", "============= Text input ================\n");
+
+                                    xx.print("Please wait...");
+                                    xx.flush();
+                                    
+                                    boolean resAktif = true;
+                                    while (resAktif) {
+                                        strbuf.delete(0, strbuf.length());
+
+                                        if (MainFileManager.getTransResultTelnet.equals("")) { // this smali Rename to CopyDropService
+                                            xx.print(". ");
+                                            xx.flush();
+                                            try {Thread.sleep(100);}catch(Exception err){}
+                                        } else {
+                                            xx.print("\n\n============= Text Output ================\n");
+                                            xx.print("\n\n"+MainFileManager.getTransResultTelnet+"\n\n"); // this smali Rename to CopyDropService
+                                            MainFileManager.getTransResultTelnet = ""; // this smali Rename to CopyDropService
+                                            xx.print("============= Text Output ================\n\n");
+                                            xx.flush();
+
+                                            Intent xintent = new Intent(Intent.ACTION_MAIN);
+                                            xintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            xintent.addCategory(Intent.CATEGORY_HOME);
+                                            context.startActivity(xintent);
+                                            resAktif = false;
+                                        }
+                                    }
                                 }
                                 else {
                                     strbuf.append(pesan);
