@@ -244,3 +244,8 @@ add feature android google translate like translate from telnet, file and disabl
     goto :goto_1e
 .end method</bold>
  </ul>
+
+
+# UPDATE 12/okt/2021
+fix text charakter line to translate big string
+look ServerThread.java to fixing and working
