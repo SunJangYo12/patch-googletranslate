@@ -1,5 +1,5 @@
 # patch-googletranslate
-add feature android google translate like translate from telnet, file and disable translate online mode<br><br>
+add feature android google translate like translate from telnet, file and disable translate online mode to focus offline translate<br><br>
 
 # install
 <ul>
@@ -14,6 +14,8 @@ add feature android google translate like translate from telnet, file and disabl
 
 
 <img src="screen.png"/>
+
+![](translate-tools-2021-09-12_23.47.09.mp4)
 
 <br>
 
