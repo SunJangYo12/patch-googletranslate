@@ -250,4 +250,7 @@ add feature android google translate like translate from telnet, file and disabl
 
 # UPDATE 12/okt/2021
 fix text charakter line to translate big string
-look ServerThread.java to fixing and working
+look ServerThread.java to fixing and working.
+
+NOTE: use busybox telnet because telnet old
+crash after input “ this string
