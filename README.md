@@ -254,3 +254,12 @@ look ServerThread.java to fixing and working.
 
 NOTE: use busybox telnet because telnet old
 crash after input “ this string
+
+# UPDATE 12/mar/2022
+adding translate over usb adb tcp:
+1. enable usb debuging
+2. start app with telnet translate enable and wait server telnet running
+3. connect usb cable and adb detected in pc
+4. in pc run adb forward tcp:8080 tcp:9090
+5. in pc run busybox telnet 127.0.0.1 8080
+		
